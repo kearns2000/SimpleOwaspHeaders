@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/analyzers/">
+    <Project Path="analyzers/SimpleOwaspHeaders.Analyzers/SimpleOwaspHeaders.Analyzers.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/SimpleOwaspHeaders.Sample/SimpleOwaspHeaders.Sample.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/SimpleOwaspHeaders.Cookies/SimpleOwaspHeaders.Cookies.csproj" />
+    <Project Path="src/SimpleOwaspHeaders/SimpleOwaspHeaders.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SimpleOwaspHeaders.Analyzers.Tests/SimpleOwaspHeaders.Analyzers.Tests.csproj" />
+    <Project Path="tests/SimpleOwaspHeaders.Tests/SimpleOwaspHeaders.Tests.csproj" />
+  </Folder>
+</Solution>

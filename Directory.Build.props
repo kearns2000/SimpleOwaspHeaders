@@ -1,0 +1,27 @@
+<Project>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <PackageIcon>icon.png</PackageIcon>
+    <Authors>SimpleOwaspHeaders</Authors>
+    <Company>SimpleOwaspHeaders</Company>
+    <Copyright>Copyright (c) 2026 SimpleOwaspHeaders</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/kearns2000/SimpleOwaspHeaders</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kearns2000/SimpleOwaspHeaders.git</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Version>1.0.0</Version>
+    <SimpleOwaspHeadersPackageTags>security;owasp;headers;aspnetcore;middleware;csp;simpleowaspheaders;dotnet</SimpleOwaspHeadersPackageTags>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+  </ItemGroup>
+</Project>
