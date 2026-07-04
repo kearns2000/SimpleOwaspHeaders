@@ -69,7 +69,7 @@ builder.Services.AddSimpleOwaspHeaders(builder.Configuration.GetSection("SimpleO
 
 Each request passes through the middleware. The resolver picks the effective policy for that path, merges it onto the default, and the middleware writes the header values to the response.
 
-See [docs/POLICY_MERGE.md](docs/POLICY_MERGE.md) for merge order and path-matching rules.
+See [docs/POLICY_MERGE.md](docs/POLICY_MERGE.md) for merge order and path-matching rules. Mermaid flowcharts for GitHub are in [docs/DIAGRAMS.md](docs/DIAGRAMS.md).
 
 ## Features
 
