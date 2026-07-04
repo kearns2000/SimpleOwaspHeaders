@@ -61,14 +61,11 @@ builder.Services.AddSimpleOwaspHeaders(builder.Configuration.GetSection("SimpleO
 
 ## How it works
 
-```mermaid
-flowchart LR
-    A[AddSimpleOwaspHeaders] --> B[IOptions configuration]
-    B --> C[ValidateOnStart]
-    C --> D[UseSimpleOwaspHeaders middleware]
-    D --> E[Policy resolver]
-    E --> F[Security headers on response]
-```
+1. **AddSimpleOwaspHeaders** — register options, presets, and path policies
+2. **ValidateOnStart** — fail fast on invalid configuration
+3. **UseSimpleOwaspHeaders** — middleware runs on each request
+4. **Policy resolver** — match path, merge policies, pick effective headers
+5. **Response** — security header values written to the HTTP response
 
 Each request passes through the middleware. The resolver picks the effective policy for that path, merges it onto the default, and the middleware writes the header values to the response.
 
@@ -89,18 +86,9 @@ See [docs/POLICY_MERGE.md](docs/POLICY_MERGE.md) for merge order and path-matchi
 
 ### Diagnostics (development)
 
-Enable with `EnableDiagnosticsEndpoint = true` in configuration.
+Enable with `EnableDiagnosticsEndpoint = true` in configuration (development environment only).
 
-```mermaid
-flowchart TD
-    A[MapSimpleOwaspHeadersDiagnostics] --> B["/_simple-owasp-headers"]
-    A --> C["/_simple-owasp-headers/report"]
-    A --> D["/_simple-owasp-headers/matrix"]
-    B --> E[JSON for current request]
-    C --> F[HTML path report + CSP directives]
-    D --> G[HTML matrix — all routes compared]
-    H[RunOrExportSecurityReportAsync] --> I[CI / build-time HTML + JSON export]
-```
+**HTTP endpoints** (via `MapSimpleOwaspHeadersDiagnostics`):
 
 | Endpoint | Output |
 |----------|--------|
@@ -109,7 +97,7 @@ flowchart TD
 | `GET /_simple-owasp-headers/matrix` | Configuration matrix across all routes |
 | `GET /_simple-owasp-headers/matrix?format=json` | Matrix data as JSON |
 
-### Export report (CI / build-time)
+**Build-time / CI export** (via `RunOrExportSecurityReportAsync`, CLI flags, env vars, or MSBuild):
 
 Export the configuration matrix without starting the web server:
 
